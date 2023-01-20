@@ -1,4 +1,4 @@
-import {getRandomArrayElement, getRandomPositiveInteger} from '../util';
+import {getRandomArrayElement, getRandomPositiveInteger} from '../utils/common.js';
 import {EVENT_TYPES, CITIES, DESCRIPTIONS} from '../const';
 
 const mockDestinations = [

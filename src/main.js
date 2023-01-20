@@ -1,7 +1,7 @@
-import {render} from './render';
-import FilterView from './view/filter-view';
-import PointListPresenter from './presenter/points-list-presenter';
-import PointsModel from './model/points-model';
+import {render} from './framework/render.js';
+import FilterView from './view/filter-view.js';
+import PointListPresenter from './presenter/points-list-presenter.js';
+import PointsModel from './model/points-model.js';
 
 const siteHeaderElement = document.querySelector('.trip-controls__filters');
 const siteMainElement = document.querySelector('.trip-events');
