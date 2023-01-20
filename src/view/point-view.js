@@ -1,6 +1,11 @@
 import {createElement} from '../render';
+// import {humanizePointDueDate} from '../util';
 
 function createPointTemplate() {
+  // const {} = point;
+
+  // const date = humanizePointDueDate(dueDate);
+
   return (
     `<li class="trip-events__item">
       <form class="event event--edit" action="#" method="post">
