@@ -1,15 +1,15 @@
 import {createElement} from '../render';
 
-function createPointListTemplate() {
-  return '<ul class="trip-events__list"></ul>';
+function createNoPointTemplate() {
+  return (
+    `<p class="trip-events__msg">
+      Click New Event to create your first point
+    </p>`
+  );
 }
 
-export default class PointListView {
+export default class NoPointView {
   #element = null;
-
-  get template() {
-    return createPointListTemplate();
-  }
 
   get element() {
     if (!this.#element) {
@@ -17,6 +17,10 @@ export default class PointListView {
     }
 
     return this.#element;
+  }
+
+  get template() {
+    return createNoPointTemplate();
   }
 
   removeElement() {

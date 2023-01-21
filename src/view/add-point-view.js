@@ -1,11 +1,6 @@
 import {createElement} from '../render';
-// import {humanizePointDueDate} from '../util';
 
 function createPointTemplate() {
-  // const {} = point;
-
-  // const date = humanizePointDueDate(dueDate);
-
   return (
     `<li class="trip-events__item">
       <form class="event event--edit" action="#" method="post">
@@ -172,20 +167,22 @@ function createPointTemplate() {
   );
 }
 
-export default class PointView {
-  getTemplate() {
+export default class PointAddView {
+  #element = null;
+
+  get template() {
     return createPointTemplate();
   }
 
-  getElement() {
-    if (!this.element) {
-      this.element = createElement(this.getTemplate());
+  get element() {
+    if (!this.#element) {
+      this.#element = createElement(this.template);
     }
 
-    return this.element;
+    return this.#element;
   }
 
   removeElement() {
-    this.element = null;
+    this.#element = null;
   }
 }
