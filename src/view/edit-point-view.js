@@ -1,6 +1,6 @@
-import {createElement} from '../render';
-import {humanizePointDateTime} from '../util';
-import {mockDestinations, mockOffers} from '../mock/point';
+import AbstractView from '../framework/view/abstract-view.js';
+import {humanizePointDateTime} from '../utils/task.js';
+import {mockDestinations, mockOffers} from '../mock/point.js';
 
 function createPointEditTemplate(point) {
   const {dateTo, dateFrom, basePrice, type, destination, offers, id} = point;
@@ -104,27 +104,33 @@ function createPointEditTemplate(point) {
   );
 }
 
-export default class PointEditView {
-  #element = null;
+export default class PointEditView extends AbstractView {
   #point = null;
+  #handleFormSubmit = null;
+  #handleFormClick = null;
 
-  constructor(point) {
+  constructor({point, onFormSubmit, onFormClick}) {
+    super();
     this.#point = point;
+    this.#handleFormSubmit = onFormSubmit;
+    this.#handleFormClick = onFormClick;
+
+    this.element.querySelector('form')
+      .addEventListener('submit', this.#formSubmitHandler);
+
+    this.element.querySelector('.event__rollup-btn')
+      .addEventListener('click', this.#formClickHandler);
   }
 
   get template() {
     return createPointEditTemplate(this.#point);
   }
 
-  get element() {
-    if (!this.#element) {
-      this.#element = createElement(this.template);
-    }
+  #formSubmitHandler = (evt) => {
+    evt.preventDefault();
+    this.#handleFormSubmit();
+  };
 
-    return this.#element;
-  }
+  #formClickHandler = () => this.#handleFormClick();
 
-  removeElement() {
-    this.#element = null;
-  }
 }

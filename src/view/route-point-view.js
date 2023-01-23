@@ -1,6 +1,6 @@
-import {createElement} from '../render';
-import {humanizePointDate, humanizePointTime} from '../util';
-import {mockDestinations, mockOffers} from '../mock/point';
+import AbstractView from '../framework/view/abstract-view.js';
+import {humanizePointDate, humanizePointTime} from '../utils/task.js';
+import {mockDestinations, mockOffers} from '../mock/point.js';
 
 function createPointRouteTemplate(point) {
   const {dateTo, dateFrom, basePrice, type, destination, offers} = point;
@@ -33,7 +33,7 @@ function createPointRouteTemplate(point) {
       <div class="event">
         <time class="event__date" datetime="2019-03-18">${pointDate}</time>
         <div class="event__type">
-          <img class="event__type-icon" width="42" height="42" src="img/icons/${type}.png" alt="Event type icon">
+          <img class="event__type-icon" width="42" height="42" src="img/icons/${type.toLowerCase()}.png" alt="Event type icon">
         </div>
         <h3 class="event__title">${type} ${pointDestination.name}</h3>
         <div class="event__schedule">
@@ -58,27 +58,24 @@ function createPointRouteTemplate(point) {
   );
 }
 
-export default class PointRouteView {
-  #element = null;
+export default class PointRouteView extends AbstractView {
   #point = null;
+  #handleEditClick = null;
 
-  constructor({point}) {
+  constructor({point, onEditClick}) {
+    super();
     this.#point = point;
+    this.#handleEditClick = onEditClick;
+
+    this.element.querySelector('.event__rollup-btn').addEventListener('click', this.#editClickHandler);
   }
 
   get template() {
     return createPointRouteTemplate(this.#point);
   }
 
-  get element() {
-    if (!this.#element) {
-      this.#element = createElement(this.template);
-    }
-
-    return this.#element;
-  }
-
-  removeElement() {
-    this.#element = null;
-  }
+  #editClickHandler = (evt) => {
+    evt.preventDefault();
+    this.#handleEditClick();
+  };
 }
