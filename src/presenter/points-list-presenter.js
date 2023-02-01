@@ -7,7 +7,6 @@ import {render, RenderPosition} from '../framework/render.js';
 export default class PointListPresenter {
   #listContainer = null;
   #pointsModel = null;
-
   #listComponent = new PointListView();
   #sortComponent = new SortView();
   #noTaskComponent = new NoPointView();
