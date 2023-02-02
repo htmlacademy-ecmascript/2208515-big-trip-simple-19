@@ -28,7 +28,6 @@ function createPointEditTemplate(point) {
   const pointStartDateTime = humanizePointDateTime(dateFrom);
   const pointEndDateTime = humanizePointDateTime(dateTo);
 
-  // связывает тип поинта = офферы по типу и дает инфу по оферам - это внизу
   function offersTemplate(checkingOffers, currentType) {
     const pointTypeOffer = mockOffers.find((offer) => offer.type === currentType);
     return pointTypeOffer.offers.map((offer) =>
@@ -58,7 +57,7 @@ function createPointEditTemplate(point) {
           <div class="event__type-wrapper">
             <label class="event__type  event__type-btn" for="event-type-toggle-${id}">
               <span class="visually-hidden">Choose event type</span>
-              <img class="event__type-icon" width="17" height="17" src="img/icons/${type}.png" alt="Event type icon">
+              <img class="event__type-icon" width="17" height="17" src="img/icons/${type.toLowerCase()}.png" alt="Event type icon">
             </label>
             <input class="event__type-toggle  visually-hidden" id="event-type-toggle-${id}" type="checkbox">
 
