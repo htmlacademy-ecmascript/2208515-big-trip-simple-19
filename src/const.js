@@ -32,4 +32,9 @@ const CITIES = [
   'Shenzhen'
 ];
 
-export {EVENT_TYPES, DESCRIPTIONS, CITIES};
+const FilterType = {
+  EVERYTHING: 'everything',
+  FUTURE: 'future',
+};
+
+export {EVENT_TYPES, DESCRIPTIONS, CITIES, FilterType};

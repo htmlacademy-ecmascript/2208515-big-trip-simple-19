@@ -11,6 +11,10 @@ const mockDestinations = [
       {
         src: 'https://loremflickr.com/248/152?random=100',
         description: getRandomArrayElement(DESCRIPTIONS),
+      },
+      {
+        src: 'https://loremflickr.com/248/152?random=101',
+        description: getRandomArrayElement(DESCRIPTIONS),
       }
     ]
   },
@@ -22,11 +26,60 @@ const mockDestinations = [
       {
         src: 'https://loremflickr.com/248/152?random=200',
         description: getRandomArrayElement(DESCRIPTIONS),
+      },
+      {
+        src: 'https://loremflickr.com/248/152?random=155',
+        description: getRandomArrayElement(DESCRIPTIONS),
       }
     ]
   },
   {
     id: 3,
+    description: Array.from({length: getRandomPositiveInteger(1, 5)}, () => getRandomArrayElement(DESCRIPTIONS)),
+    name: getRandomArrayElement(CITIES),
+    pictures: [
+      {
+        src: 'https://loremflickr.com/248/152?random=300',
+        description: getRandomArrayElement(DESCRIPTIONS),
+      },
+      {
+        src: 'https://loremflickr.com/248/152?random=200',
+        description: getRandomArrayElement(DESCRIPTIONS),
+      }
+    ]
+  },
+  {
+    id: 4,
+    description: Array.from({length: getRandomPositiveInteger(1, 5)}, () => getRandomArrayElement(DESCRIPTIONS)),
+    name: getRandomArrayElement(CITIES),
+    pictures: [
+      {
+        src: 'https://loremflickr.com/248/152?random=300',
+        description: getRandomArrayElement(DESCRIPTIONS),
+      },
+      {
+        src: 'https://loremflickr.com/248/152?random=300',
+        description: getRandomArrayElement(DESCRIPTIONS),
+      }
+    ]
+  },
+  {
+    id: 5,
+    description: Array.from({length: getRandomPositiveInteger(1, 5)}, () => getRandomArrayElement(DESCRIPTIONS)),
+    name: getRandomArrayElement(CITIES),
+    pictures: [
+      {
+        src: 'https://loremflickr.com/248/152?random=300',
+        description: getRandomArrayElement(DESCRIPTIONS),
+      },
+      {
+        src: 'https://loremflickr.com/248/152?random=300',
+        description: getRandomArrayElement(DESCRIPTIONS),
+      }
+    ]
+  },
+  {
+    id: 6,
     description: Array.from({length: getRandomPositiveInteger(1, 5)}, () => getRandomArrayElement(DESCRIPTIONS)),
     name: getRandomArrayElement(CITIES),
     pictures: [
@@ -219,25 +272,25 @@ const mockOffers = [
 const mockPoints = [
   {
     basePrice: 1100,
-    dateFrom: '2019-07-10T22:55:56.845Z',
-    dateTo: '2019-07-11T11:22:13.375Z',
-    destination: getRandomPositiveInteger(1, 3),
+    dateFrom: '2022-07-10T22:55:56.845Z',
+    dateTo: '2022-07-11T11:22:13.375Z',
+    destination: getRandomPositiveInteger(1, 6),
     offers: [1, 2, 3],
     type: getRandomArrayElement(EVENT_TYPES),
   },
   {
     basePrice: 1300,
-    dateFrom: '2019-08-10T01:55:56.845Z',
-    dateTo: '2019-08-11T01:22:13.375Z',
-    destination: getRandomPositiveInteger(1, 3),
+    dateFrom: '2023-01-04T01:55:56.845Z',
+    dateTo: '2023-01-04T01:22:13.375Z',
+    destination: getRandomPositiveInteger(1, 6),
     offers: [1, 2, 3],
     type: getRandomArrayElement(EVENT_TYPES),
   },
   {
     basePrice: 1500,
-    dateFrom: '2019-09-10T22:55:56.845Z',
-    dateTo: '2019-09-11T11:22:13.375Z',
-    destination: getRandomPositiveInteger(1, 3),
+    dateFrom: '2018-09-10T22:55:56.845Z',
+    dateTo: '2018-09-11T11:22:13.375Z',
+    destination: getRandomPositiveInteger(1, 6),
     offers: [2, 3],
     type: getRandomArrayElement(EVENT_TYPES),
   },
