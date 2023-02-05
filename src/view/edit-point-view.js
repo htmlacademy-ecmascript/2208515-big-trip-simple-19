@@ -122,12 +122,14 @@ function createPointEditTemplate(point) {
 export default class PointEditView extends AbstractStatefulView {
   #handleFormSubmit = null;
   #handleFormClick = null;
+  #handleDeleteClick = null;
 
-  constructor({point, onFormSubmit, onFormClick}) {
+  constructor({point, onFormSubmit, onFormClick, onDeleteClick}) {
     super();
     this._setState(PointEditView.parsePointToState(point));
     this.#handleFormSubmit = onFormSubmit;
     this.#handleFormClick = onFormClick;
+    this.#handleDeleteClick = onDeleteClick;
 
     this._restoreHandlers();
   }
@@ -148,6 +150,9 @@ export default class PointEditView extends AbstractStatefulView {
 
     this.element.querySelector('.event__input--destination')
       .addEventListener('change', this.#destinationToggleHandler);
+
+    this.element.querySelector('.event__reset-btn')
+      .addEventListener('click', this.#formDeleteClickHandler);
   }
 
   #formSubmitHandler = (evt) => {
@@ -156,6 +161,11 @@ export default class PointEditView extends AbstractStatefulView {
   };
 
   #formClickHandler = () => this.#handleFormClick();
+
+  #formDeleteClickHandler = (evt) => {
+    evt.preventDefault();
+    this.#handleDeleteClick(PointEditView.parseStateToPoint(this._state));
+  };
 
   #typeToggleHandler = (evt) => {
     evt.preventDefault();

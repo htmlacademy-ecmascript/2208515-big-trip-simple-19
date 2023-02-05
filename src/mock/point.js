@@ -280,8 +280,8 @@ const mockPoints = [
   },
   {
     basePrice: 1300,
-    dateFrom: '2023-01-04T01:55:56.845Z',
-    dateTo: '2023-01-04T01:22:13.375Z',
+    dateFrom: '2023-03-04T01:55:56.845Z',
+    dateTo: '2023-03-04T01:22:13.375Z',
     destination: getRandomPositiveInteger(1, 6),
     offers: [1, 2, 3],
     type: getRandomArrayElement(EVENT_TYPES),
