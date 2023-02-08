@@ -18,7 +18,6 @@ export default class PointListPresenter {
   #filterModel = null;
   #offersModel = null;
   #destinationsModel = null;
-
   #listComponent = new PointListView();
   #loadingComponent = new LoadingView();
   #sortComponent = null;
@@ -63,8 +62,6 @@ export default class PointListPresenter {
       default:
         return filteredPoints;
     }
-
-    // return filteredPoints;
   }
 
   get offers() {

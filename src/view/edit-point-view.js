@@ -80,7 +80,6 @@ const createEventTypeListTemplate = (offersModel, currentType, isDisabled) => {
       <label class="event__type-label  event__type-label--${type}" for="event-type-${type}-1">${ucFirst(type)}</label>
     </div>
   `);
-
   return eventTypeListTemplate.join('');
 };
 
@@ -182,10 +181,12 @@ export default class PointEditView extends AbstractStatefulView {
     this.element.querySelector('.event__type-group').addEventListener('change', this.#typeChangeHandler);
     this.element.querySelector('.event__input--destination').addEventListener( 'change', this.#destinationChangeHandler);
     this.element.querySelector('.event__input--price').addEventListener('change', this.#priceChangeHandler);
+
     const availableOffersElement = this.element.querySelector('.event__available-offers');
     if (availableOffersElement) {
       availableOffersElement.addEventListener('change', this.#offersChangeHandler);
     }
+
     const resetBtnElement = this.element.querySelector('.event__reset-btn');
     if (this._state.id === undefined) {
       resetBtnElement.addEventListener('click', this.#formCancelClickHandler);
