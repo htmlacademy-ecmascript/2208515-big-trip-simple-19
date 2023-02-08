@@ -1,40 +1,46 @@
-const EVENT_TYPES = [
-  'Taxi',
-  'Bus',
-  'Train',
-  'Ship',
-  'Drive',
-  'Flight',
-  'Check-in',
-  'Sightseeing',
-  'Restaurant'
-];
-
-const DESCRIPTIONS = [
-  'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-  'Cras aliquet varius magna, non porta ligula feugiat eget.',
-  'Fusce tristique felis at fermentum pharetra.',
-  'Aliquam id orci ut lectus varius viverra.',
-  'Nullam nunc ex, convallis sed finibus eget, sollicitudin eget ante.',
-  'Phasellus eros mauris, condimentum sed nibh vitae, sodales efficitur ipsum.',
-  'Sed blandit, eros vel aliquam faucibus, purus ex euismod diam, eu luctus nunc ante ut dui.',
-  'Sed sed nisi sed augue convallis suscipit in sed felis.',
-  'Aliquam erat volutpat. Nunc fermentum tortor ac porta dapibus.',
-  'In rutrum ac purus sit amet tempus.'
-];
-
-const CITIES = [
-  'Geneva',
-  'Amsterdam',
-  'Barcelona',
-  'Tokyo',
-  'Sydney',
-  'Shenzhen'
-];
-
 const FilterType = {
   EVERYTHING: 'everything',
   FUTURE: 'future',
 };
 
-export {EVENT_TYPES, DESCRIPTIONS, CITIES, FilterType};
+const SortType = {
+  DEFAULT: 'default',
+  PRICE: 'price',
+  DAY: 'day',
+};
+
+const UserAction = {
+  UPDATE_POINT: 'UPDATE_POINT',
+  ADD_POINT: 'ADD_POINT',
+  DELETE_POINT: 'DELETE_POINT',
+};
+
+const UpdateType = {
+  PATCH: 'PATCH',
+  MINOR: 'MINOR',
+  MAJOR: 'MAJOR',
+  INIT: 'INIT',
+};
+
+const BLANK_POINT = {
+  basePrice: 0,
+  dateFrom: '',
+  dateTo: '',
+  destination: null,
+  offers: [],
+  type: 'taxi'
+};
+
+const TimeLimit = {
+  LOWER_LIMIT: 350,
+  UPPER_LIMIT: 1000,
+};
+
+export {
+  FilterType,
+  SortType,
+  UserAction,
+  UpdateType,
+  BLANK_POINT,
+  TimeLimit
+};
