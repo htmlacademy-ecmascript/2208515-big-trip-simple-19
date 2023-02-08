@@ -12,8 +12,6 @@ function isPointPlanned(dateFrom) {
   return dateFrom && (dayjs().isSame(dateFrom, 'D') || dayjs().isBefore(dateFrom, 'D'));
 }
 
-// Функция помещает задачи без даты в конце списка,
-// возвращая нужный вес для колбэка sort
 function getWeightForNullDate(dateA, dateB) {
   if (dateA === null && dateB === null) {
     return 0;
@@ -32,13 +30,11 @@ function getWeightForNullDate(dateA, dateB) {
 
 function sortDay(pointA, pointB) {
   const weight = getWeightForNullDate(pointA.dateFrom, pointB.dateFrom);
-
   return weight ?? dayjs(pointA.dateFrom).diff(dayjs(pointB.dateFrom));
 }
 
 function sortPrice(pointA, pointB) {
   const weight = getWeightForNullDate(pointA.dateFrom, pointB.dateFrom);
-
   return weight ?? pointB.basePrice - pointA.basePrice;
 }
 
@@ -47,8 +43,9 @@ function isDatesEqual(dateA, dateB) {
 }
 
 function ucFirst(str) {
-  if (!str) {return str;}
-
+  if (!str) {
+    return str;
+  }
   return str[0].toUpperCase() + str.slice(1);
 }
 

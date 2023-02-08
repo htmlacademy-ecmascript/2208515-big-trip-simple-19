@@ -1,25 +1,17 @@
 import PointRouteView from '../view/route-point-view.js';
 import PointEditView from '../view/edit-point-view.js';
 import {render, replace, remove} from '../framework/render.js';
-import {UserAction, UpdateType} from '../const.js';
-
-const Mode = {
-  DEFAULT: 'DEFAULT',
-  EDITING: 'EDITING',
-};
+import {UserAction, UpdateType, Mode} from '../const.js';
 
 export default class PointPresenter {
   #pointListContainer = null;
   #pointEditComponent = null;
   #handleModeChange = null;
   #handleDataChange = null;
-
   #pointComponent = null;
-
   #point = null;
   #offers = null;
   #destinations = null;
-
   #mode = Mode.DEFAULT;
 
   constructor({pointListContainer, onModeChange, onDataChange}) {

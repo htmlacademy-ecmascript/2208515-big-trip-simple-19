@@ -4,7 +4,6 @@ const FilterType = {
 };
 
 const SortType = {
-  DEFAULT: 'default',
   PRICE: 'price',
   DAY: 'day',
 };
@@ -36,11 +35,23 @@ const TimeLimit = {
   UPPER_LIMIT: 1000,
 };
 
+const Mode = {
+  DEFAULT: 'DEFAULT',
+  EDITING: 'EDITING',
+};
+
+const NoPointsTextType = {
+  [FilterType.EVERYTHING]: 'Click New Event to create your first point',
+  [FilterType.FUTURE]: 'There are no future events now',
+};
+
 export {
   FilterType,
   SortType,
   UserAction,
   UpdateType,
   BLANK_POINT,
-  TimeLimit
+  TimeLimit,
+  Mode,
+  NoPointsTextType
 };

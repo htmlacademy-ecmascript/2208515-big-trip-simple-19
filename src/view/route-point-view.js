@@ -9,7 +9,6 @@ function getCurrentOffers(selectedOffers, type, offersModel) {
 
 function createOffersTemplate(selectedOffers, type, offersModel) {
   const currentOffers = getCurrentOffers(selectedOffers, type, offersModel);
-
   return currentOffers.length !== 0 ? currentOffers.map((offer) => offer !== undefined ?
     `<li class="event__offer">
      <span class="event__offer-title">${offer.title}</span>
@@ -31,7 +30,6 @@ function createPointRouteTemplate (point, offersModel, destinationsModel) {
   const pointDate = humanizePointDate(dateFrom);
   const pointStartTime = humanizePointTime(dateFrom);
   const pointEndTime = humanizePointTime(dateTo);
-
   return `<li class="trip-events__item">
     <div class="event">
       <time class="event__date" datetime="${dateFrom}">${pointDate}</time>
@@ -71,7 +69,6 @@ export default class PointRouteView extends AbstractView {
     this.#offers = offers;
     this.#destinations = destinations;
     this.#handleEditClick = onEditClick;
-
     this.element.querySelector('.event__rollup-btn').addEventListener('click', this.#editClickHandler);
   }
 
