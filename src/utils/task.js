@@ -46,4 +46,10 @@ function isDatesEqual(dateA, dateB) {
   return (dateA === null && dateB === null) || dayjs(dateA).isSame(dateB, 'D');
 }
 
-export {humanizePointDate, humanizePointDateTime, humanizePointTime, isPointPlanned, sortDay, sortPrice, isDatesEqual};
+function ucFirst(str) {
+  if (!str) {return str;}
+
+  return str[0].toUpperCase() + str.slice(1);
+}
+
+export {humanizePointDate, humanizePointDateTime, humanizePointTime, isPointPlanned, sortDay, sortPrice, isDatesEqual, ucFirst};
