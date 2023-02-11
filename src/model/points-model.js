@@ -24,21 +24,6 @@ export default class PointsModel extends Observable {
     this._notify(UpdateType.INIT);
   }
 
-  #adaptToClient(point) {
-    const adaptedPoint = {...point,
-      id: Number(point['id']),
-      dateFrom: point['date_from'] !== null ? new Date(point['date_from']) : point['date_from'],
-      dateTo: point['date_to'] !== null ? new Date(point['date_to']) : point['date_to'],
-      basePrice: point['base_price'],
-    };
-
-    delete adaptedPoint['base_price'];
-    delete adaptedPoint['date_from'];
-    delete adaptedPoint['date_to'];
-
-    return adaptedPoint;
-  }
-
   async updatePoint(updateType, update) {
     const index = this.#points.findIndex((point) => Number(point.id) === Number(update.id));
 
@@ -88,5 +73,20 @@ export default class PointsModel extends Observable {
     } catch(err) {
       throw new Error('Can\'t update unexisting point');
     }
+  }
+
+  #adaptToClient(point) {
+    const adaptedPoint = {...point,
+      id: Number(point['id']),
+      dateFrom: point['date_from'] !== null ? new Date(point['date_from']) : point['date_from'],
+      dateTo: point['date_to'] !== null ? new Date(point['date_to']) : point['date_to'],
+      basePrice: point['base_price'],
+    };
+
+    delete adaptedPoint['base_price'];
+    delete adaptedPoint['date_from'];
+    delete adaptedPoint['date_to'];
+
+    return adaptedPoint;
   }
 }
